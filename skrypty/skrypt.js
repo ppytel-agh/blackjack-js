@@ -473,6 +473,7 @@ var ubezpiecz = function(x){
 	//kwota.style.display="none";
 	if(x == "tak"){
 		if(ubz.innerHTML != ""){
+			//take even money
 			kwota.innerHTML = "";
 			kwota.style.display="none";
 			ubz.innerHTML = "";
@@ -616,8 +617,19 @@ var sprawdzKrupiera = function(sp,ubz="brak"){
 										var zetonyubz =document.getElementById("ubz");
 										zetonyubz.style.left="47%";
 										zetonyubz.style.bottom="110%";
+										var h = document.getElementById("hit");
+										h.style.display="block";
+										var s = document.getElementById("stand");
+										s.style.display="block";
+										var dd = document.getElementById("ddown");
+										dd.style.display="block";
+										if(rekaGracza[0].slice(0,-2)==rekaGracza[1].slice(0,-2)){
+										var spl = document.getElementById("split");
+											spl.style.display="block";
+										}
+										document.getElementById("sumagr").children[0].innerHTML = sumuj("g");
 										setTimeout(function(){
-											zetonyubz.parentNode.removeChild(ubz);
+											zetonyubz.parentNode.removeChild(zetonyubz);
 										},1050);
 									}
 								}else{
@@ -635,6 +647,7 @@ var sprawdzKrupiera = function(sp,ubz="brak"){
 											var spl = document.getElementById("split");
 											spl.style.display="block";
 										}
+										document.getElementById("sumagr").children[0].innerHTML = sumuj("g");
 									}
 								}
 							}else if(sp=="stand"){
@@ -1282,7 +1295,6 @@ var kuniec = function(stan){
 		ubz.style.bottom="0%";
 		setTimeout(function(){
 			ubz.parentNode.removeChild(ubz);
-			stos.parentNode.removeChild(stos);
 		},1050)
 		setTimeout(function(){
 			dod.style.left="6.8%";

@@ -220,7 +220,7 @@ do ładowania
 	transform-origin:left bottom;
 	min-height:200px;
 	transition:bottom 1s ease-out,left 1s ease-out;
-	z-index:20;
+	z-index:15;
 }
 #stos>div{
 	position:absolute;
@@ -383,6 +383,7 @@ do ładowania
 	display:none;
 }
 #ubz{
+	z-index:20;
 	position:absolute;
 	left:6.8%;
 	bottom:0%;
