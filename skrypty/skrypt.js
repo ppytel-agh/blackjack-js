@@ -558,10 +558,13 @@ var checkbj = function(){
 			document.getElementById("sumagr").children[0].innerHTML = sumuj("g");
 			var h = document.getElementById("hit");
 			h.style.display="block";
+			h.className="wtd";
 			var s = document.getElementById("stand");
 			s.style.display="block";
+			s.className="wtd";
 			var dd = document.getElementById("ddown");
 			dd.style.display="block";
+			dd.className="wtd";
 			if(rekaGracza[0].slice(0,-2)==rekaGracza[1].slice(0,-2)){
 			var spl = document.getElementById("split");
 				spl.style.display="block";
@@ -776,6 +779,18 @@ var ktowygral = function(){
 		if(splity.length>0){
 			var tmp3 = rekaGracza;
 			rekaGracza = splity[obslugiwanysplit-1].karty;
+			if((rekaGracza[0].slice(0,-2)=="A")||(rekaGracza[1].slice(0,-2)=="A")){
+				var tmp;
+				if(rekaGracza[0].slice(0,-2)=="A"){
+					tmp= rekaGracza[1].slice(0,-2);
+				}else if(rekaGracza[1].slice(0,-2)=="A"){
+					tmp= rekaGracza[0].slice(0,-2);
+				}
+				if(tmp == "10"||tmp=="W"||tmp=="D"||tmp=="K"){
+					rekaGracza = tmp3;
+					return kuniec("bj");
+				}
+			}
 			var sumagr = String(sumuj("g"));
 			rekaGracza = tmp3;
 			if(sumagr.length>2){
@@ -1007,6 +1022,17 @@ var stand = function(zbustowal="nie"){
 								s.className="wtd";
 								dd.className="wtd";
 								hituje=false;
+								if((rekaGracza[0].slice(0,-2)=="A")||(rekaGracza[1].slice(0,-2)=="A")){
+									var tmp;
+									if(rekaGracza[0].slice(0,-2)=="A"){
+										tmp= rekaGracza[1].slice(0,-2);
+									}else if(rekaGracza[1].slice(0,-2)=="A"){
+										tmp= rekaGracza[0].slice(0,-2);
+									}
+									if(tmp == "10"||tmp=="W"||tmp=="D"||tmp=="K"){
+										stand();
+									}
+								}
 							},2550);
 						},1050);
 					},1050);
@@ -1048,7 +1074,21 @@ var sprawdzeniesplitow = function(){
 			obslugiwanysplit= undefined;
 			clearInterval(interwal);
 			interwal = undefined;
-			ktowygral();
+			if((rekaGracza[0].slice(0,-2)=="A")||(rekaGracza[1].slice(0,-2)=="A")){
+				var tmp;
+				if(rekaGracza[0].slice(0,-2)=="A"){
+					tmp= rekaGracza[1].slice(0,-2);
+				}else if(rekaGracza[1].slice(0,-2)=="A"){
+					tmp= rekaGracza[0].slice(0,-2);
+				}
+				if(tmp == "10"||tmp=="W"||tmp=="D"||tmp=="K"){
+					kuniec("bj");
+				}else{
+					ktowygral();
+				}
+			}else{
+				ktowygral();
+			}
 		}else{
 			obslugiwanysplit++;
 			ktowygral();
@@ -1195,6 +1235,17 @@ var split = function(){
 						document.getElementById("hit").className="wtd";
 						document.getElementById("stand").className="wtd";
 						hituje = false;
+						if((rekaGracza[0].slice(0,-2)=="A")||(rekaGracza[1].slice(0,-2)=="A")){
+							var tmp;
+							if(rekaGracza[0].slice(0,-2)=="A"){
+								tmp= rekaGracza[1].slice(0,-2);
+							}else if(rekaGracza[1].slice(0,-2)=="A"){
+								tmp= rekaGracza[0].slice(0,-2);
+							}
+							if(tmp == "10"||tmp=="W"||tmp=="D"||tmp=="K"){
+								stand();
+							}
+						}
 					},2500);
 				},1500);
 			},1050);
