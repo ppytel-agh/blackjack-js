@@ -1305,7 +1305,6 @@ var kuniec = function(stan){
 	hituje = false;
 	setTimeout(function(){
 		stosik.parentNode.removeChild(stosik);
-		karty=document.getElementsByClassName("karta");
 		var ilerazy = Number(karty.length);
 		for(var i = 0;i<ilerazy;i++){
 			karty[0].parentNode.removeChild(karty[0]);
@@ -1439,7 +1438,7 @@ var spawn = function(dla,sprite="hide"){
 				l = rekaKrupiera.length-3;
 			}
 			karta.style.left=63+l+"%";
-			karta.style.zIndex=(l+1);
+			karta.style.zIndex=(10+l+1);
 		}
 	},50);
 	setTimeout(function(){
