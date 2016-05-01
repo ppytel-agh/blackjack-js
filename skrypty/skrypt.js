@@ -493,10 +493,17 @@ var ubezpiecz = function(x){
 			sprawdzKrupiera("none","ubz");
 		}
 	}else if(x=="nie"){
-		ubz.innerHTML = "";
-		kwota.innerHTML = "";
-		kwota.style.display="none";
-		sprawdzKrupiera("none");
+		if(ubz.innerHTML != ""){
+			ubz.innerHTML = "";
+			kwota.innerHTML = "";
+			kwota.style.display="none";
+			sprawdzKrupiera("bj");
+		}else{
+			ubz.innerHTML = "";
+			kwota.innerHTML = "";
+			kwota.style.display="none";
+			sprawdzKrupiera("none");
+		}
 	}
 }
 
@@ -589,6 +596,11 @@ var sprawdzKrupiera = function(sp,ubz="brak"){
 								var krupiermabj = false;
 								if(rekaKrupiera[0].slice(0,-2)=="A"){
 									var tmp = rekaKrupiera[1].slice(0,-2);
+									if(tmp == "10"||tmp=="W"||tmp=="D"||tmp=="K"){
+										krupiermabj = true;
+									}
+								}else if(rekaKrupiera[1].slice(0,-2)=="A"){
+									var tmp = rekaKrupiera[0].slice(0,-2);
 									if(tmp == "10"||tmp=="W"||tmp=="D"||tmp=="K"){
 										krupiermabj = true;
 									}

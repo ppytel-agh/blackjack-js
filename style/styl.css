@@ -338,16 +338,37 @@ do ładowania
 	height: 7%;
 	top: 36.5%;
 	left: 45.1%;
-	background-color: rgba(255,255,77,0.3);
-	box-shadow:0px 0px 5px 0.5px red;
+	
 	display:none;
-}
-#ubezpieczenie:hover{
-	background-color: rgba(255,255,77,0.5);
 }
 #ubezpieczenie:active{
 	box-shadow:inset 0px 0px 5px 0.5px;
 }
+
+
+.ubzzwykle{
+	background-color: rgba(255,255,77,0.3);
+	box-shadow:0px 0px 5px 0.5px red;
+}
+.ubzzwykle:hover{
+	background-color: rgba(255,255,77,0.5);
+}
+
+
+.ubzevenmoney{
+	background-color: rgb(7, 159, 22);
+}
+.ubzevenmoney:hover{
+	background-color:#3bf74e;
+}
+.ubzevenmoney>p{
+	text-align:center;
+	color:white;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
 
 #nie{
 	position:absolute;
@@ -392,6 +413,8 @@ do ładowania
 	min-height:200px;
 	transition:bottom 1s ease-out,left 1s ease-out;
 }
+
+
 
 #wiadomosc{
 	position:absolute;
