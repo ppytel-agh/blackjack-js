@@ -1298,8 +1298,10 @@ var kuniec = function(stan){
 	}
 	setTimeout(function(){
 		stosik.parentNode.removeChild(stosik);
-		for(var i = 0;i<karty.length;i++){
-			karty[i].parentNode.removeChild(karty[i]);
+		karty=document.getElementsByClassName("karta");
+		var ilerazy = Number(karty.length);
+		for(var i = 0;i<ilerazy;i++){
+			karty[0].parentNode.removeChild(karty[0]);
 		}
 		if(splity.length==0){
 			document.getElementById("zaklad").style.display = "block";
