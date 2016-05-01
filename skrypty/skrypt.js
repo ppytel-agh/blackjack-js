@@ -1081,6 +1081,12 @@ var ddown = function(){
 										stand();
 									}
 								},1050);
+							}else{
+								if(czyzbustowal == "busted"){
+									stand("busted");
+								}else{
+									stand();
+								}
 							}
 						}else{
 							if(czyzbustowal == "busted"){
@@ -1296,6 +1302,7 @@ var kuniec = function(stan){
 		karty[i].style.top = "-20%";
 		karty[i].style.transition = "top 1s,left 1s";
 	}
+	hituje = false;
 	setTimeout(function(){
 		stosik.parentNode.removeChild(stosik);
 		karty=document.getElementsByClassName("karta");
