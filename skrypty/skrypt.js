@@ -777,7 +777,9 @@ var ktowygral = function(){
 			}else{
 				sumagr = parseInt(sumagr);
 			}
-			if(sumagr>suma){
+			if(sumagr>21){
+				kuniec("p");
+			}else if(sumagr>suma){
 				setTimeout(function(){
 					kuniec("w");
 				},1000);
@@ -865,6 +867,9 @@ var hit=function(dubluje=false){
 					}
 				}else{
 					document.getElementById("sumagr").children[0].innerHTML = suma;
+					hituje=false;
+					document.getElementById("hit").className="wtd";
+					document.getElementById("stand").className="wtd";
 					if(parseInt(suma)==21){
 						stand();
 					}
@@ -894,12 +899,12 @@ var hit=function(dubluje=false){
 						return "busted";
 					}
 				}else{
+					hituje=false;
+					document.getElementById("hit").className="wtd";
+					document.getElementById("stand").className="wtd";
 					document.getElementById("sumagr").children[0].innerHTML = suma;
 				}
 			}
-			hituje = false;
-			document.getElementById("hit").className="wtd";
-			document.getElementById("stand").className="wtd";
 		},3000);
 	}
 };
@@ -916,9 +921,13 @@ var stand = function(zbustowal="nie"){
 		var dd = document.getElementById("ddown");
 		if(splity.length>0){
 			h.style.display="block";
+			h.className="disabled";
 			s.style.display="block";
+			s.className="disabled";
 			dd.style.display="block";
+			dd.className="disabled";
 			if(obslugiwanysplit==undefined||obslugiwanysplit<splity.length){
+				hituje=true;
 				if(obslugiwanysplit==undefined){
 					obslugiwanysplit=1;
 				}else{
