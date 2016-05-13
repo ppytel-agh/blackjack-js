@@ -831,7 +831,9 @@ var ktowygral = function(){
 			}else{
 				sumagr = parseInt(sumagr);
 			}
-			if(sumagr>suma){
+			if(sumagr>21){
+				kuniec("p");
+			}else if(sumagr>suma){
 				setTimeout(function(){
 					kuniec("w");
 				},1000);
@@ -1303,6 +1305,9 @@ var kuniec = function(stan){
 		aktualnyZaklad=0;
 		rekaGracza = [];
 		rekaKrupiera = [];
+		document.getElementById("ddown").className="wtd";
+		document.getElementById("hit").className="wtd";
+		document.getElementById("stand").className="wtd";
 	}
 	var stosik = document.getElementById(tmpid);
 	if(stan == "p"){
